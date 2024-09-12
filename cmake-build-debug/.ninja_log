@@ -1,0 +1,8 @@
+# ninja log v6
+0	1090	1726136761580801643	CMakeFiles/introduction_cpp_pokemon.dir/main.cpp.o	69960c066f97133c
+2	1112	1726136761583801830	CMakeFiles/introduction_cpp_pokemon.dir/SetOfPokemon.cpp.o	a737b2839efd7b27
+1	582	1726136665339873478	CMakeFiles/introduction_cpp_pokemon.dir/Pokemon.cpp.o	62c00a6965b201c0
+1128	1280	1726136762709872051	introduction_cpp_pokemon	2ddcbb2f132c6eca
+2	773	1726133800518738855	CMakeFiles/introduction_cpp_pokemon.dir/PokemonParty.cpp.o	f5bcb69b9f49061c
+8	897	1726133545583575628	CMakeFiles/introduction_cpp_pokemon.dir/Pokeball.cpp.o	ddb032baa49e2c45
+1	803	1726136600580985807	CMakeFiles/introduction_cpp_pokemon.dir/Pokedex.cpp.o	3dd4f39b1d1a1eeb
