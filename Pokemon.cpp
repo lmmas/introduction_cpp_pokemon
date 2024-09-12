@@ -5,7 +5,7 @@
 		int attackStat,
 		int defenseStat,
 		int generation) : id(id), name(name), hitPoint(hitPoint), attackStat(attackStat), defenseStat(defenseStat), generation(generation) {
-		std::cout << "Go, " << this->name << "!" << std::endl;
+		//std::cout << "Go, " << this->name << "!" << std::endl;
 		pokemonCount++;
 	}
 

@@ -9,4 +9,10 @@ add_executable(introduction_cpp_pokemon main.cpp
         SetOfPokemon.hpp
         main.cpp
         Pokedex.cpp
-        Pokedex.h)
+        Pokedex.h
+        PokemonParty.cpp
+        PokemonParty.h
+        Pokeball.cpp
+        Pokeball.h
+        PlayerState.cpp
+        PlayerState.h)

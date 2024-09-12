@@ -1,7 +1,7 @@
 #include "SetOfPokemon.hpp"
 void SetOfPokemon::displayList() {
-    for(Pokemon * pp: this->list)
+    for(const auto& pp: this->list)
     {
-        std::cout << pp->getId() << ", " << pp->getName() << std::endl;
+        cout << "Pokemon #" << pp->getId() << ": " << pp->getName() << endl;
     }
 }

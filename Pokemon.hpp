@@ -21,7 +21,7 @@
 		~Pokemon();
 
 		int getId();
-		const std::string Pokemon::getName();
+		const std::string getName();
 		void displayInfo() const;
 		void damage(int);
 		void attack(Pokemon);

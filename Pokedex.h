@@ -10,11 +10,17 @@
 
 
 class Pokedex : public SetOfPokemon{
-public:
-    Pokemon getPokemon(std::string name);
-    Pokemon getPokemon(int id);
+private:
+    static Pokedex* instance;
     Pokedex(std::string csvPath);
+public:
+    Pokedex(Pokedex& other) = delete;
+    void operator=(const Pokedex & ) = delete;
+    std::unique_ptr<Pokemon> getPokemon(std::string name);
+    std::unique_ptr<Pokemon> getPokemon(int id);
+
     void lireCSV(std::string csvPath);
+    static Pokedex* getInstance();
 };
 
 
