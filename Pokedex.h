@@ -1,7 +1,6 @@
 //
 // Created by louismmassin on 9/12/24.
 //
-
 #ifndef POKEDEX_H
 #define POKEDEX_H
 #include <string>

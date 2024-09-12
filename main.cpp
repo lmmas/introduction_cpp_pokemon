@@ -1,5 +1,6 @@
 #include <iostream>
 
+#include "Game.h"
 #include "Pokedex.h"
 #include "Pokemon.hpp"
 #include "PokemonParty.h"
@@ -27,7 +28,14 @@ void test2() {
     myParty.displayList();
 }
 
+void test3() {
+    Game myGame{};
+    sleep(2);
+    myGame.actionStart();
+
+}
+
 int main() {
-    test2();
+    test3();
     return 0;
 }

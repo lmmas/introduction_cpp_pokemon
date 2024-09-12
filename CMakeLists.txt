@@ -14,5 +14,13 @@ add_executable(introduction_cpp_pokemon main.cpp
         PokemonParty.h
         Pokeball.cpp
         Pokeball.h
-        PlayerState.cpp
-        PlayerState.h)
+        GameState.cpp
+        GameState.h
+        Game.cpp
+        Game.h
+        LoadingState.cpp
+        LoadingState.h
+        InitState.cpp
+        InitState.h
+        ExploreSafelyState.cpp
+        ExploreSafelyState.h)

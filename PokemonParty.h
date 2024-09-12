@@ -1,7 +1,6 @@
 //
 // Created by louismmassin on 9/12/24.
 //
-
 #ifndef POKEMONPARTY_H
 #define POKEMONPARTY_H
 #include "Pokeball.h"

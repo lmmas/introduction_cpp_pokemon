@@ -4,6 +4,7 @@
 
 #include "Pokeball.h"
 
+
 unique_ptr<Pokemon> Pokeball::getPokemon(int id) {
     for(int i = 0; i < list.size(); i++) {
         if(list.at(i)->getId() == id) {
