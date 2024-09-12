@@ -13,7 +13,7 @@
 		pokemonCount++;
 	}
 	Pokemon::~Pokemon() {
-		std::cout << "Non, " << this->name << "!!" << std::endl;
+		//std::cout << "Non, " << this->name << "!!" << std::endl;
 		pokemonCount--;
 	}
 

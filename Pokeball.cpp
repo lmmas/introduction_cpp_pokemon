@@ -25,3 +25,7 @@ unique_ptr<Pokemon> Pokeball::getPokemon(std::string name) {
     }
     return nullptr;
 }
+
+void Pokeball::addPokemon(unique_ptr<Pokemon> newPokemon) {
+    list.push_back(move(newPokemon));
+}
