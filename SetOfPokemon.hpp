@@ -9,7 +9,7 @@ protected:
 	vector<unique_ptr<Pokemon>> list;
 public:
 	SetOfPokemon() = default;
-	virtual unique_ptr<Pokemon> getPokemon(std::string name) = 0;
+	virtual unique_ptr<Pokemon> getPokemon(const string &name) = 0;
 	virtual unique_ptr<Pokemon> getPokemon(int id) = 0;
 	void displayList();
 };

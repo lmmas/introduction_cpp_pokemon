@@ -1,31 +1,37 @@
 #include "Pokemon.hpp"
-	Pokemon::Pokemon(int id, 
-		const std::string& name,
-		int hitPoint,
+
+#include <utility>
+	Pokemon::Pokemon(int id,
+		std::string  name,
+		int hitPoints,
 		int attackStat,
 		int defenseStat,
-		int generation) : id(id), name(name), hitPoint(hitPoint), attackStat(attackStat), defenseStat(defenseStat), generation(generation) {
-		//std::cout << "Go, " << this->name << "!" << std::endl;
+		int generation) : id(id), name(std::move(name)), hitPoints(hitPoints), maxHP(hitPoints), attackStat(attackStat), defenseStat(defenseStat), generation(generation), ko(false){
+
 		pokemonCount++;
 	}
 
-	Pokemon::Pokemon(Pokemon& otherPokemon) : id(otherPokemon.id), name(otherPokemon.name), hitPoint(otherPokemon.hitPoint), attackStat(otherPokemon.attackStat), defenseStat(otherPokemon.defenseStat), generation(otherPokemon.generation) {
+	Pokemon::Pokemon(const Pokemon& otherPokemon) : id(otherPokemon.id), name(otherPokemon.name), hitPoints(otherPokemon.hitPoints), maxHP(otherPokemon.maxHP), attackStat(otherPokemon.attackStat), defenseStat(otherPokemon.defenseStat), generation(otherPokemon.generation), ko(otherPokemon.ko) {
 		pokemonCount++;
 	}
 	Pokemon::~Pokemon() {
+
 		//std::cout << "Non, " << this->name << "!!" << std::endl;
 		pokemonCount--;
 	}
 
-	void Pokemon::attack(Pokemon ennemyPokemon) {
+	void Pokemon::attack(Pokemon& ennemyPokemon) {
+		cout << this->getName() << " attacks " << ennemyPokemon.getName() << "!" << endl;
 		ennemyPokemon.damage(this->attackStat);
 	}
 
 	void Pokemon::damage(int ennemyAttack) {
 		if (this->defenseStat < ennemyAttack) {
-			this->hitPoint -= (ennemyAttack - this->defenseStat);
-			if (this->hitPoint <= 0) {
-				std::cout << this->name << "est KO!!!" << std::endl;
+			this->hitPoints -= (ennemyAttack - this->defenseStat);
+			if (this->hitPoints <= 0) {
+				this-> hitPoints = 0;
+				this->ko = true;
+				cout << this->name << " is KO!!!" << endl;
 			}
 		}
 	}
@@ -40,11 +46,16 @@
 		return name;
 	}
 
+bool Pokemon::isKO() {
+	return ko;
+}
+
+
 	void Pokemon::displayInfo() const {
-		std::cout << "id: " << this->id << std::endl;
-		std::cout << "name: " << this->name << std::endl;
-		std::cout << "hitPoint: " << this->hitPoint << std::endl;
-		std::cout << "attack: " << this->attackStat << std::endl;
-		std::cout << "defense: " << this->defenseStat << std::endl;
-		std::cout << "generation: " << this->generation << std::endl;
+		cout << "id: " << this->id << endl;
+		cout << "name: " << this->name << endl;
+		cout << "hitPoint: " << this->hitPoints << endl;
+		cout << "attack: " << this->attackStat << endl;
+		cout << "defense: " << this->defenseStat << endl;
+		cout << "generation: " << this->generation << endl;
 	}

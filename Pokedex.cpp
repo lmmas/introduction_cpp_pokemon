@@ -8,6 +8,9 @@
 #include <memory>
 
 #include "PokemonParty.h"
+#include "UtilityFunctions.h"
+
+shared_ptr<Pokedex> Pokedex::instance = nullptr;
 
 Pokedex::Pokedex(string csvPath) {
     lireCSV(csvPath);
@@ -35,7 +38,7 @@ void Pokedex::lireCSV(string csvPath) {
                 string name = donneesLigne.at(1);
                 int hitPoints = stoi(donneesLigne.at(5));
                 int attackStat = stoi(donneesLigne.at(6));
-                int defenseStat = stoi(donneesLigne.at(7));
+                int defenseStat = stoi(donneesLigne.at(7))/2;
                 int generation = stoi(donneesLigne.at(11));
 
                 list.push_back(make_unique<Pokemon>(id, name, hitPoints, attackStat, defenseStat, generation));
@@ -54,7 +57,7 @@ unique_ptr<Pokemon> Pokedex::getPokemon(int id) {
     return make_unique<Pokemon>(*list.at(0));
 }
 
-unique_ptr<Pokemon> Pokedex::getPokemon(string name) {
+unique_ptr<Pokemon> Pokedex::getPokemon(const string& name) {
     for(const auto& pp: list) {
         if(pp->getName() == name) {
             return make_unique<Pokemon>(*pp);
@@ -63,14 +66,15 @@ unique_ptr<Pokemon> Pokedex::getPokemon(string name) {
     return make_unique<Pokemon>(*list.at(0));
 }
 
-Pokedex* Pokedex::instance = nullptr;
-
-Pokedex* Pokedex::getInstance() {
+shared_ptr<Pokedex> Pokedex::getInstance() {
     if(instance == nullptr) {
-        instance = new Pokedex("../resources/pokedex.csv");
+        instance = shared_ptr<Pokedex>(new Pokedex("../resources/pokedex.csv"));
     }
     return instance;
 }
 
-
+unique_ptr<Pokemon> Pokedex::randomPokemon() {
+    int index = UtilityFunctions::randomInt(list.size());
+    return make_unique<Pokemon>(*list.at(index));
+}
 

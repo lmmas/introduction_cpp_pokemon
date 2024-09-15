@@ -2,28 +2,32 @@
 
 #include <iostream>
 #include <string>
+using namespace std;
 	class Pokemon {
 	private:
 		int id;
-		const std::string name;
-		int hitPoint;
+		const string name;
+		int hitPoints;
+		int maxHP;
 		int attackStat;
 		int defenseStat;
 		int generation;
+		bool ko;
 	public:
 		static int pokemonCount ;
 		Pokemon(int id,
-			const std::string &name,
-			int hitPoint,
+			string name,
+			int hitPoints,
 			int attackStat,
 			int defense,
 			int generation);
-		Pokemon(Pokemon& otherPokemon);
+		Pokemon(const Pokemon& otherPokemon);
 		~Pokemon();
 
 		int getId();
-		const std::string getName();
+		const string getName();
+		bool isKO();
 		void displayInfo() const;
 		void damage(int);
-		void attack(Pokemon);
+		void attack(Pokemon&);
 	};

@@ -11,7 +11,7 @@ void test1() {
 }
 
 void test2() {
-    Pokedex* myPokedex = Pokedex::getInstance();
+    shared_ptr<Pokedex> myPokedex = Pokedex::getInstance();
     //myPokedex ->displayList();
     Pokeball myPokeball{};
     myPokeball.addPokemon(myPokedex->getPokemon("Pikachu"));
@@ -30,9 +30,7 @@ void test2() {
 
 void test3() {
     Game myGame{};
-    sleep(2);
-    myGame.actionStart();
-
+    myGame.run();
 }
 
 int main() {

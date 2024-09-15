@@ -6,11 +6,14 @@
 #include "GameState.h"
 
 
-class LoadingState: public GameState {
+class LoadingState final : public GameState {
 public:
-    LoadingState(const shared_ptr<Game>& game);
-    void actionStart() override;
-    void actionGo() override;
+    LoadingState(Game& game);
+
+    void run() override;
+    void action1() override;
+    void action2() override;
+    void action3() override;
 };
 
 

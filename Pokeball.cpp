@@ -16,7 +16,7 @@ unique_ptr<Pokemon> Pokeball::getPokemon(int id) {
     return nullptr;
 }
 
-unique_ptr<Pokemon> Pokeball::getPokemon(std::string name) {
+unique_ptr<Pokemon> Pokeball::getPokemon(const string &name) {
     for(int i = 0; i < list.size(); i++) {
         if(list.at(i)->getName() == name) {
             unique_ptr<Pokemon> pp = std::move(list.at(i));

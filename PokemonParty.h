@@ -9,10 +9,14 @@
 class PokemonParty : public SetOfPokemon{
 private:
     Pokeball& pokeball;
+    int activePokemon;
 public:
     PokemonParty(Pokeball& pokeball, std::string names[6]);
-    unique_ptr<Pokemon> getPokemon(std::string name);
+    PokemonParty(Pokeball& pokeball);
+    unique_ptr<Pokemon> getPokemon(const string &name);
     unique_ptr<Pokemon> getPokemon(int id);
+    Pokemon& getActivePokemon();
+    void addPokemon(unique_ptr<Pokemon> newPokemon);
 };
 
 

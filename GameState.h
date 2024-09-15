@@ -7,17 +7,25 @@
 
 #include "Game.h"
 
-//#include "Game.h"
 using namespace std;
 
+class Pokeball;
+class PokemonParty;
 class Game;
 class GameState {
 protected:
-    shared_ptr<Game> game;
+    Game& game;
+    Pokeball& playerPokeball;
+    PokemonParty& playerParty;
 public:
-    GameState(const shared_ptr<Game>& game);
-    virtual void actionStart() =0;
-    virtual void actionGo() = 0;
+    GameState(Game& game);
+    virtual ~GameState();
+    void promptAction();
+    void invalidKey();
+    virtual void action1() =0;
+    virtual void action2() = 0;
+    virtual void action3() = 0;
+    virtual void run() = 0;
 };
 
 

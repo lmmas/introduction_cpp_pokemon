@@ -23,4 +23,12 @@ add_executable(introduction_cpp_pokemon main.cpp
         InitState.cpp
         InitState.h
         ExploreSafelyState.cpp
-        ExploreSafelyState.h)
+        ExploreSafelyState.h
+        ExploreGrassState.cpp
+        ExploreGrassState.h
+        FightState.cpp
+        FightState.h
+        UtilityFunctions.cpp
+        UtilityFunctions.h
+        GameOverState.cpp
+        GameOverState.h)

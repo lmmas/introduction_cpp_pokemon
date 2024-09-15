@@ -7,15 +7,22 @@
 
 #include "InitState.h"
 
-LoadingState::LoadingState(const shared_ptr<Game>& game): GameState(game) {
+LoadingState::LoadingState(Game& game): GameState(game) {
     cout << "Loading..." << endl;
 }
-
-void LoadingState::actionStart() {
+void LoadingState::run() {
+    sleep(1);
     auto anotherState = make_unique<InitState>(this->game);
-    game->transitionToState(move(anotherState));
+    game.transitionToState(move(anotherState));
+}
+void LoadingState::action1() {
+
 }
 
-void LoadingState::actionGo() {
+void LoadingState::action2() {
+
+}
+
+void LoadingState::action3() {
 
 }

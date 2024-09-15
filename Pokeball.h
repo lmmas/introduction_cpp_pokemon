@@ -9,7 +9,7 @@
 class Pokeball :public  SetOfPokemon{
 public:
     Pokeball() = default;
-    unique_ptr<Pokemon> getPokemon(std::string name);
+    unique_ptr<Pokemon> getPokemon(const string &name);
     unique_ptr<Pokemon> getPokemon(int id);
     void addPokemon(unique_ptr<Pokemon> newPokemon);
 };

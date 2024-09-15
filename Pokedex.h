@@ -7,19 +7,20 @@
 
 #include "SetOfPokemon.hpp"
 
+using namespace std;
 
 class Pokedex : public SetOfPokemon{
 private:
-    static Pokedex* instance;
-    Pokedex(std::string csvPath);
+    static shared_ptr<Pokedex> instance;
+    Pokedex(string csvPath);
+    void lireCSV(string csvPath);
 public:
-    Pokedex(Pokedex& other) = delete;
+    Pokedex(const Pokedex& other) = delete;
     void operator=(const Pokedex & ) = delete;
-    std::unique_ptr<Pokemon> getPokemon(std::string name);
-    std::unique_ptr<Pokemon> getPokemon(int id);
-
-    void lireCSV(std::string csvPath);
-    static Pokedex* getInstance();
+    unique_ptr<Pokemon> getPokemon(const string& name) override;
+    unique_ptr<Pokemon> getPokemon(int id) override;
+    unique_ptr<Pokemon> randomPokemon();
+    static shared_ptr<Pokedex> getInstance();
 };
 
 

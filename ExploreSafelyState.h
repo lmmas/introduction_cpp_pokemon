@@ -7,11 +7,14 @@
 #include "GameState.h"
 
 
-class ExploreSafelyState: public GameState {
+class ExploreSafelyState final : public GameState {
 public:
-    ExploreSafelyState(const shared_ptr<Game>& game);
-    void actionStart() override;
-    void actionGo() override;
+    ExploreSafelyState(Game& game);
+
+    void run() override;
+    void action1() override;
+    void action2() override;
+    void action3() override;
 };
 
 
