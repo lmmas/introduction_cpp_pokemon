@@ -36,12 +36,14 @@ void Pokedex::lireCSV(string csvPath) {
             if(lineNumber > 0) {
                 int id = stoi(donneesLigne.at(0));
                 string name = donneesLigne.at(1);
+                Pokemon::PokemonType type1 = Pokemon::stringToType(donneesLigne.at(2));
+                Pokemon::PokemonType type2 = Pokemon::stringToType(donneesLigne.at(3));
                 int hitPoints = stoi(donneesLigne.at(5));
                 int attackStat = stoi(donneesLigne.at(6));
-                int defenseStat = stoi(donneesLigne.at(7))/2;
+                int defenseStat = stoi(donneesLigne.at(7));
                 int generation = stoi(donneesLigne.at(11));
 
-                list.push_back(make_unique<Pokemon>(id, name, hitPoints, attackStat, defenseStat, generation));
+                list.push_back(make_unique<Pokemon>(id, name, type1, type2, hitPoints, attackStat, defenseStat, generation));
             }
             lineNumber++;
         }

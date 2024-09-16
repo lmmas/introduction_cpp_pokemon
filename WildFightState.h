@@ -7,13 +7,14 @@
 #include "GameState.h"
 
 
-class FightState : public GameState{
+class WildFightState : public GameState{
 private:
     unique_ptr<Pokemon> wildPokemon;
-    bool flightSuccess;
+    bool flightSuccess = false;
+    bool catchSuccess = false;
     void flee();
 public:
-    FightState(Game& game);
+    WildFightState(Game& game);
     void run() override;
     void action1() override;
     void action2() override;

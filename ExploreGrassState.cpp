@@ -5,7 +5,7 @@
 #include "ExploreGrassState.h"
 
 #include "ExploreSafelyState.h"
-#include "FightState.h"
+#include "WildFightState.h"
 #include "UtilityFunctions.h"
 
 ExploreGrassState::ExploreGrassState(Game &game): GameState(game) {
@@ -17,8 +17,8 @@ void ExploreGrassState::run() {
     promptAction();
 }
 void ExploreGrassState::action1() {
-    if(UtilityFunctions::randomEvent(0.2f)) {
-        game.transitionToState(make_unique<FightState>(game));
+    if(UtilityFunctions::randomEvent(0.3f)) {
+        game.transitionToState(make_unique<WildFightState>(game));
     }
     else {
         run();

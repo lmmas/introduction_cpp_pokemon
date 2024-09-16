@@ -9,7 +9,7 @@
 class PokemonParty : public SetOfPokemon{
 private:
     Pokeball& pokeball;
-    int activePokemon;
+    int activePokemon = 0;
 public:
     PokemonParty(Pokeball& pokeball, std::string names[6]);
     PokemonParty(Pokeball& pokeball);

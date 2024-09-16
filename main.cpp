@@ -6,7 +6,7 @@
 #include "PokemonParty.h"
 using namespace std;
 void test1() {
-    Pokemon pikachu(0, "Pikachu", 1, 2, 3, 0);
+    Pokemon pikachu(0, "Pikachu", Pokemon::ELECTRIC, Pokemon::NONE,1, 2, 3, 0);
     pikachu.displayInfo();
 }
 
