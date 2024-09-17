@@ -4,11 +4,15 @@
 
 #include "PokemonParty.h"
 
+#include "UtilityFunctions.h"
+
 PokemonParty::PokemonParty(Pokeball& pokeball, string names[6]): pokeball(pokeball), activePokemon(0){
     for(int i = 0; i <6; i++) {
         list.push_back(pokeball.getPokemon(names[i]));
     }
 }
+
+PokemonParty::PokemonParty():pokeball(){};
 
 PokemonParty::PokemonParty(Pokeball& pokeball): pokeball(pokeball) {
 }
@@ -61,4 +65,14 @@ bool PokemonParty::allPokemonsKO() {
 
 void PokemonParty::setActivePokemon(int index) {
     activePokemon = index;
+}
+
+int PokemonParty::findNONKOIndex() {
+    int randomIndex = UtilityFunctions::randomInt(list.size());
+    if(!list.at(activePokemon)->isKO()) {
+        return randomIndex;
+    }
+    else {
+        return findNONKOIndex();
+    }
 }

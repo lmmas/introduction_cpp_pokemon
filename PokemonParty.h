@@ -14,6 +14,7 @@ public:
     static constexpr int partySize = 6;
     PokemonParty(Pokeball& pokeball, string names[6]);
     PokemonParty(Pokeball& pokeball);
+    PokemonParty();
     unique_ptr<Pokemon> getPokemon(const string &name) override;
     unique_ptr<Pokemon> getPokemon(int id) override;
     Pokemon& getActivePokemon();
@@ -21,6 +22,7 @@ public:
     void addPokemon(unique_ptr<Pokemon> newPokemon);
     void switchWithPokeball(int partyIndex, int pokeballIndex);
     bool allPokemonsKO();
+    int findNONKOIndex();
 };
 
 

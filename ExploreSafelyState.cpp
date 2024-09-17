@@ -7,6 +7,7 @@
 #include "ExploreGrassState.h"
 #include "InitState.h"
 #include "PokeCenterState.h"
+#include "TrainerFightCase.h"
 
 ExploreSafelyState::ExploreSafelyState(Game& game): GameState(game) {
 }
@@ -23,7 +24,8 @@ void ExploreSafelyState::action1() {
 }
 
 void ExploreSafelyState::action2() {
-    invalidKey();
+    auto anotherState = make_unique<TrainerFightCase>(this->game);
+    game.transitionToState(move(anotherState));
 }
 
 void ExploreSafelyState::action3() {

@@ -1,5 +1,6 @@
 #include "Pokemon.hpp"
 
+#include <cmath>
 #include <utility>
 	Pokemon::Pokemon(int id,
 		std::string  name,
@@ -159,8 +160,16 @@ map<pair<Pokemon::PokemonType, Pokemon::PokemonType>, float> Pokemon::typeMap = 
 	}
 
 	void Pokemon::damage(int ennemyAttack, Pokemon::PokemonType attackType) {
-		const int damageValue = (int)((2 * (float)averageLevel/5 + 2.0f)*averagePower*(float)ennemyAttack/(float)this->defenseStat / 50 * damageModifier(attackType, this->type1) * damageModifier(attackType, this->type2));
-		cout << "damage dealt: " << damageValue << endl;
+		const float totalTypeModifier = damageModifier(attackType, this->type1) * damageModifier(attackType, this->type2);
+		if(totalTypeModifier != 1.0f) {
+			if(totalTypeModifier < 1.0f) {
+				cout << "It's not very effective..." << endl;
+			}
+			else {
+				cout << "It's very effective!!!" << endl;
+			}
+		}
+		const int damageValue = (int)((2 * (float)averageLevel/5 + 2.0f)*averagePower*(float)ennemyAttack/(float)this->defenseStat / 50 * totalTypeModifier);
 		if (damageValue >= this->hitPoints) {
 			this->hitPoints = 0;
 			this->ko = true;
@@ -169,6 +178,7 @@ map<pair<Pokemon::PokemonType, Pokemon::PokemonType>, float> Pokemon::typeMap = 
 		else {
 			this->hitPoints -= damageValue;
 		}
+		cout << "Health left: " << lround(100*(float)hitPoints/(float)maxHP) << "%" << endl;
 	}
 
 	int Pokemon::pokemonCount = 0;

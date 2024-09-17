@@ -47,6 +47,7 @@ void WildFightState::run() {
                 int selectedIndex = selectNonKOPrompt(playerParty);
                 playerParty.setActivePokemon(selectedIndex);
                 cout << "Go " << playerParty.getActivePokemon().getName() << "!" << endl;
+                run();
             }
         }
         else {
@@ -63,6 +64,7 @@ void WildFightState::action2() {
     playerParty.displayList();
     int activeIndex = selectFromListPrompt(playerParty.getList().size());
     playerParty.setActivePokemon(activeIndex);
+    cout << "Go " << playerParty.getActivePokemon().getName() << "!" << endl;
     cout << "'1': attack; '2': change Pokemon; '3': throw Pokeball; '4': flee" << endl;
     promptAction();
 }
@@ -82,6 +84,7 @@ void WildFightState::action3() {
 void WildFightState::action4() {
     cout << "You try to flee..." << endl;
     flightSuccess = UtilityFunctions::randomEvent(0.5f);
+    sleep(1);
     if (flightSuccess){
         cout << "You flee succesfully!" << endl;
     }

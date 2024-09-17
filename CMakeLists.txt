@@ -34,4 +34,6 @@ add_executable(introduction_cpp_pokemon main.cpp
         GameOverState.h
         PokeCenterState.cpp
         PokeCenterState.h
+        TrainerFightCase.cpp
+        TrainerFightCase.h
 )

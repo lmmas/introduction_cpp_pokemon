@@ -145,6 +145,12 @@ build CMakeFiles/introduction_cpp_pokemon.dir/PokeCenterState.cpp.o: CXX_COMPILE
   OBJECT_DIR = CMakeFiles/introduction_cpp_pokemon.dir
   OBJECT_FILE_DIR = CMakeFiles/introduction_cpp_pokemon.dir
 
+build CMakeFiles/introduction_cpp_pokemon.dir/TrainerFightCase.cpp.o: CXX_COMPILER__introduction_cpp_pokemon_unscanned_Debug /home/louismmassin/CLionProjects/introduction_cpp_pokemon/TrainerFightCase.cpp || cmake_object_order_depends_target_introduction_cpp_pokemon
+  DEP_FILE = CMakeFiles/introduction_cpp_pokemon.dir/TrainerFightCase.cpp.o.d
+  FLAGS = -g -std=gnu++20 -fdiagnostics-color=always
+  OBJECT_DIR = CMakeFiles/introduction_cpp_pokemon.dir
+  OBJECT_FILE_DIR = CMakeFiles/introduction_cpp_pokemon.dir
+
 
 # =============================================================================
 # Link build statements for EXECUTABLE target introduction_cpp_pokemon
@@ -153,7 +159,7 @@ build CMakeFiles/introduction_cpp_pokemon.dir/PokeCenterState.cpp.o: CXX_COMPILE
 #############################################
 # Link the executable introduction_cpp_pokemon
 
-build introduction_cpp_pokemon: CXX_EXECUTABLE_LINKER__introduction_cpp_pokemon_Debug CMakeFiles/introduction_cpp_pokemon.dir/main.cpp.o CMakeFiles/introduction_cpp_pokemon.dir/Pokemon.cpp.o CMakeFiles/introduction_cpp_pokemon.dir/SetOfPokemon.cpp.o CMakeFiles/introduction_cpp_pokemon.dir/Pokedex.cpp.o CMakeFiles/introduction_cpp_pokemon.dir/PokemonParty.cpp.o CMakeFiles/introduction_cpp_pokemon.dir/Pokeball.cpp.o CMakeFiles/introduction_cpp_pokemon.dir/GameState.cpp.o CMakeFiles/introduction_cpp_pokemon.dir/Game.cpp.o CMakeFiles/introduction_cpp_pokemon.dir/LoadingState.cpp.o CMakeFiles/introduction_cpp_pokemon.dir/InitState.cpp.o CMakeFiles/introduction_cpp_pokemon.dir/ExploreSafelyState.cpp.o CMakeFiles/introduction_cpp_pokemon.dir/ExploreGrassState.cpp.o CMakeFiles/introduction_cpp_pokemon.dir/WildFightState.cpp.o CMakeFiles/introduction_cpp_pokemon.dir/UtilityFunctions.cpp.o CMakeFiles/introduction_cpp_pokemon.dir/GameOverState.cpp.o CMakeFiles/introduction_cpp_pokemon.dir/PokeCenterState.cpp.o
+build introduction_cpp_pokemon: CXX_EXECUTABLE_LINKER__introduction_cpp_pokemon_Debug CMakeFiles/introduction_cpp_pokemon.dir/main.cpp.o CMakeFiles/introduction_cpp_pokemon.dir/Pokemon.cpp.o CMakeFiles/introduction_cpp_pokemon.dir/SetOfPokemon.cpp.o CMakeFiles/introduction_cpp_pokemon.dir/Pokedex.cpp.o CMakeFiles/introduction_cpp_pokemon.dir/PokemonParty.cpp.o CMakeFiles/introduction_cpp_pokemon.dir/Pokeball.cpp.o CMakeFiles/introduction_cpp_pokemon.dir/GameState.cpp.o CMakeFiles/introduction_cpp_pokemon.dir/Game.cpp.o CMakeFiles/introduction_cpp_pokemon.dir/LoadingState.cpp.o CMakeFiles/introduction_cpp_pokemon.dir/InitState.cpp.o CMakeFiles/introduction_cpp_pokemon.dir/ExploreSafelyState.cpp.o CMakeFiles/introduction_cpp_pokemon.dir/ExploreGrassState.cpp.o CMakeFiles/introduction_cpp_pokemon.dir/WildFightState.cpp.o CMakeFiles/introduction_cpp_pokemon.dir/UtilityFunctions.cpp.o CMakeFiles/introduction_cpp_pokemon.dir/GameOverState.cpp.o CMakeFiles/introduction_cpp_pokemon.dir/PokeCenterState.cpp.o CMakeFiles/introduction_cpp_pokemon.dir/TrainerFightCase.cpp.o
   FLAGS = -g
   OBJECT_DIR = CMakeFiles/introduction_cpp_pokemon.dir
   POST_BUILD = :
