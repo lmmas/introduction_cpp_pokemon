@@ -16,14 +16,21 @@ WildFightState::WildFightState(Game& game): GameState(game) {
 }
 
 void WildFightState::run() {
-    cout << "'1': attack; '2': throw Pokeball; '3': flee" << endl;
+    cout << "'1': attack; '2': change Pokemon; '3': throw Pokeball; '4': flee" << endl;
     promptAction();
     if(flightSuccess) {
         game.transitionToState(make_unique<ExploreGrassState>(game));
     }
     else if(catchSuccess) {
         wildPokemon->restore();
-        playerPokeball.addPokemon(std::move(wildPokemon));
+        if(playerParty.getList().size() < PokemonParty::partySize) {
+            cout << wildPokemon->getName() << " has been added to your party!" << endl;
+            playerParty.addPokemon(std::move(wildPokemon));
+        }
+        else {
+            cout << wildPokemon->getName() << " has been transfered to PC!" << endl;
+            playerPokeball.addPokemon(std::move(wildPokemon));
+        }
         game.transitionToState(make_unique<ExploreGrassState>(game));
     }
     else if(wildPokemon->isKO()) {
@@ -33,7 +40,14 @@ void WildFightState::run() {
     else {
         wildPokemon->attack(playerParty.getActivePokemon(), playerParty.getActivePokemon().getAttackType());
         if(playerParty.getActivePokemon().isKO()) {
-            game.transitionToState(make_unique<GameOverState>(game));
+            if(playerParty.allPokemonsKO()){
+                game.transitionToState(make_unique<GameOverState>(game));
+            }
+            else {
+                int selectedIndex = selectNonKOPrompt(playerParty);
+                playerParty.setActivePokemon(selectedIndex);
+                cout << "Go " << playerParty.getActivePokemon().getName() << "!" << endl;
+            }
         }
         else {
             run();
@@ -45,6 +59,15 @@ void WildFightState::action1() {
 }
 
 void WildFightState::action2() {
+    cout << "Select Pokemon for fighting:" << endl;
+    playerParty.displayList();
+    int activeIndex = selectFromListPrompt(playerParty.getList().size());
+    playerParty.setActivePokemon(activeIndex);
+    cout << "'1': attack; '2': change Pokemon; '3': throw Pokeball; '4': flee" << endl;
+    promptAction();
+}
+
+void WildFightState::action3() {
     cout << "Throwing a Pokeball!" << endl;
     catchSuccess = UtilityFunctions::randomEvent(0.3f);
     sleep(1);
@@ -56,7 +79,7 @@ void WildFightState::action2() {
     }
 }
 
-void WildFightState::action3() {
+void WildFightState::action4() {
     cout << "You try to flee..." << endl;
     flightSuccess = UtilityFunctions::randomEvent(0.5f);
     if (flightSuccess){
@@ -66,3 +89,24 @@ void WildFightState::action3() {
         cout << "You fail to flee!" << endl;
     }
 }
+
+void WildFightState::action5() {
+
+}
+
+void WildFightState::action6() {
+}
+
+int WildFightState::selectNonKOPrompt(SetOfPokemon &pokemonList) {
+    cout << "Select Pokemon for fighting:" << endl;
+    pokemonList.displayList();
+    int selectedIndex = selectFromListPrompt(pokemonList.getList().size());
+    if(!pokemonList.getList().at(selectedIndex)->isKO()) {
+        return selectedIndex;
+    }
+    else {
+        cout << "Pokemon is KO!" << endl;
+        return selectNonKOPrompt(pokemonList);
+    }
+}
+

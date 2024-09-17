@@ -1,15 +1,15 @@
 //
-// Created by louismmassin on 9/12/24.
+// Created by louismmassin on 9/16/24.
 //
-#ifndef LOADINGSTATE_H
-#define LOADINGSTATE_H
+
+#ifndef POKECENTERSTATE_H
+#define POKECENTERSTATE_H
 #include "GameState.h"
 
 
-class LoadingState final : public GameState {
+class PokeCenterState: public GameState {
 public:
-    LoadingState(Game& game);
-
+    PokeCenterState(Game& game);
     void run() override;
     void action1() override;
     void action2() override;
@@ -21,4 +21,4 @@ public:
 
 
 
-#endif //LOADINGSTATE_H
+#endif //POKECENTERSTATE_H

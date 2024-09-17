@@ -12,4 +12,5 @@ public:
 	virtual unique_ptr<Pokemon> getPokemon(const string &name) = 0;
 	virtual unique_ptr<Pokemon> getPokemon(int id) = 0;
 	void displayList();
+	vector<unique_ptr<Pokemon>>& getList();
 };

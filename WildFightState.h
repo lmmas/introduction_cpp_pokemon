@@ -19,6 +19,10 @@ public:
     void action1() override;
     void action2() override;
     void action3() override;
+    void action4() override;
+    void action5() override;
+    void action6() override;
+    int selectNonKOPrompt(SetOfPokemon& pokemonList);
 };
 
 

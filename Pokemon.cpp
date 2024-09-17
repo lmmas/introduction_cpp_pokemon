@@ -162,7 +162,7 @@ map<pair<Pokemon::PokemonType, Pokemon::PokemonType>, float> Pokemon::typeMap = 
 		const int damageValue = (int)((2 * (float)averageLevel/5 + 2.0f)*averagePower*(float)ennemyAttack/(float)this->defenseStat / 50 * damageModifier(attackType, this->type1) * damageModifier(attackType, this->type2));
 		cout << "damage dealt: " << damageValue << endl;
 		if (damageValue >= this->hitPoints) {
-			this-> hitPoints = 0;
+			this->hitPoints = 0;
 			this->ko = true;
 			cout << this->name << " is KO!!!" << endl;
 		}

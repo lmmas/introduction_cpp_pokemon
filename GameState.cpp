@@ -26,6 +26,15 @@ void GameState::promptAction() {
     else if(action == "3") {
         action3();
     }
+    else if(action == "4") {
+        action4();
+    }
+    else if(action == "5") {
+        action5();
+    }
+    else if(action == "6") {
+        action6();
+    }
     else {
         invalidKey();
     }
@@ -34,4 +43,16 @@ void GameState::promptAction() {
 void GameState::invalidKey() {
     cout << "Invalid key" << endl;
     promptAction();
+}
+
+int GameState::selectFromListPrompt(const int range) {
+    int index;
+    cin >> index;
+    if(index > 0 && index < range + 1) {
+        return index - 1;
+    }
+    else {
+        cout << "Invalid key" << endl;
+        return selectFromListPrompt(range);
+    }
 }

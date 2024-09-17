@@ -33,3 +33,15 @@ void ExploreGrassState::action2() {
 void ExploreGrassState::action3() {
     invalidKey();
 }
+
+void ExploreGrassState::action4() {
+    invalidKey();
+}
+
+void ExploreGrassState::action5() {
+    invalidKey();
+}
+
+void ExploreGrassState::action6() {
+    invalidKey();
+}

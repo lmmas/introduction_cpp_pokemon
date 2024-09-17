@@ -40,7 +40,25 @@ Pokemon &PokemonParty::getActivePokemon() {
 }
 
 void PokemonParty::addPokemon(unique_ptr<Pokemon> newPokemon) {
-    if(list.size() <6) {
+    if(list.size() <PokemonParty::partySize) {
         list.push_back(move(newPokemon));
     }
+}
+
+void PokemonParty::switchWithPokeball(int partyIndex, int pokeballIndex) {
+    auto tempPokemon = move(list.at(partyIndex));
+    list.at(partyIndex) = move(pokeball.getList().at(pokeballIndex));
+    pokeball.getList().at(pokeballIndex) = move(tempPokemon);
+}
+
+bool PokemonParty::allPokemonsKO() {
+    bool exp = true;
+    for(const auto& pp: list) {
+        exp = exp && pp->isKO();
+    }
+    return exp;
+}
+
+void PokemonParty::setActivePokemon(int index) {
+    activePokemon = index;
 }

@@ -26,3 +26,15 @@ void LoadingState::action2() {
 void LoadingState::action3() {
 
 }
+
+void LoadingState::action4() {
+
+}
+
+void LoadingState::action5() {
+
+}
+
+void LoadingState::action6() {
+
+}

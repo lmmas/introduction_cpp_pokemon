@@ -21,10 +21,14 @@ public:
     GameState(Game& game);
     virtual ~GameState();
     void promptAction();
+    int selectFromListPrompt(int range);
     void invalidKey();
-    virtual void action1() =0;
+    virtual void action1() = 0;
     virtual void action2() = 0;
     virtual void action3() = 0;
+    virtual void action4() = 0;
+    virtual void action5() = 0;
+    virtual void action6() = 0;
     virtual void run() = 0;
 };
 

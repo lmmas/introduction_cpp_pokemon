@@ -26,3 +26,15 @@ void GameOverState::action2() {
 void GameOverState::action3() {
     invalidKey();
 }
+
+void GameOverState::action4() {
+    invalidKey();
+}
+
+void GameOverState::action5() {
+    invalidKey();
+}
+
+void GameOverState::action6() {
+    invalidKey();
+}

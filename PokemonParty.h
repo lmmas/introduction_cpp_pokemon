@@ -11,12 +11,16 @@ private:
     Pokeball& pokeball;
     int activePokemon = 0;
 public:
-    PokemonParty(Pokeball& pokeball, std::string names[6]);
+    static constexpr int partySize = 6;
+    PokemonParty(Pokeball& pokeball, string names[6]);
     PokemonParty(Pokeball& pokeball);
-    unique_ptr<Pokemon> getPokemon(const string &name);
-    unique_ptr<Pokemon> getPokemon(int id);
+    unique_ptr<Pokemon> getPokemon(const string &name) override;
+    unique_ptr<Pokemon> getPokemon(int id) override;
     Pokemon& getActivePokemon();
+    void setActivePokemon(int index);
     void addPokemon(unique_ptr<Pokemon> newPokemon);
+    void switchWithPokeball(int partyIndex, int pokeballIndex);
+    bool allPokemonsKO();
 };
 
 

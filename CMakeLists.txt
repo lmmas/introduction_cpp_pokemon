@@ -31,4 +31,7 @@ add_executable(introduction_cpp_pokemon main.cpp
         UtilityFunctions.cpp
         UtilityFunctions.h
         GameOverState.cpp
-        GameOverState.h)
+        GameOverState.h
+        PokeCenterState.cpp
+        PokeCenterState.h
+)
