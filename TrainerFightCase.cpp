@@ -39,18 +39,18 @@ void TrainerFightCase::run() {
             int randomInt = playerParty.findNONKOIndex();
             playerParty.setActivePokemon(randomInt);
             cout << "Gauthier chooses " << trainerParty.getActivePokemon().getName() << "!" << endl;
-            trainerParty.getActivePokemon().attack(playerParty.getActivePokemon(), playerParty.getActivePokemon().getAttackType());
+            trainerParty.getActivePokemon().attack(playerParty.getActivePokemon());
             run();
         }
     }
     else {
-        trainerParty.getActivePokemon().attack(playerParty.getActivePokemon(), playerParty.getActivePokemon().getAttackType());
+        trainerParty.getActivePokemon().attack(playerParty.getActivePokemon());
         run();
     }
 }
 
 void TrainerFightCase::action1() {
-    playerParty.getActivePokemon().attack(trainerParty.getActivePokemon(), playerParty.getActivePokemon().getAttackType());
+    playerParty.getActivePokemon().attack(trainerParty.getActivePokemon());
 }
 
 void TrainerFightCase::action2() {

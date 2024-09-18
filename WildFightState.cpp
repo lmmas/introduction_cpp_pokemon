@@ -38,7 +38,7 @@ void WildFightState::run() {
         game.transitionToState(make_unique<ExploreGrassState>(game));
     }
     else {
-        wildPokemon->attack(playerParty.getActivePokemon(), playerParty.getActivePokemon().getAttackType());
+        wildPokemon->attack(playerParty.getActivePokemon());
         if(playerParty.getActivePokemon().isKO()) {
             if(playerParty.allPokemonsKO()){
                 game.transitionToState(make_unique<GameOverState>(game));
@@ -56,7 +56,7 @@ void WildFightState::run() {
     }
 }
 void WildFightState::action1() {
-    playerParty.getActivePokemon().attack(*wildPokemon, playerParty.getActivePokemon().getAttackType());
+    playerParty.getActivePokemon().attack(*wildPokemon);
 }
 
 void WildFightState::action2() {

@@ -42,8 +42,8 @@ using namespace std;
 		bool isKO();
 		void displayInfo() const;
 		void damage(int ennemyAttack, Pokemon::PokemonType attackType);
-		void attack(Pokemon& ennemyPokemon, Pokemon::PokemonType attackType);
+		void attack(Pokemon& ennemyPokemon);
 		void restore();
-		PokemonType getAttackType();
+
 		static PokemonType stringToType(const string& inputString);
 	};

@@ -154,9 +154,9 @@ map<pair<Pokemon::PokemonType, Pokemon::PokemonType>, float> Pokemon::typeMap = 
 {make_pair(FAIRY, STEEL),0.5f},
 } ;
 
-	void Pokemon::attack(Pokemon& ennemyPokemon, Pokemon::PokemonType attackType) {
+	void Pokemon::attack(Pokemon& ennemyPokemon) {
 		cout << this->getName() << " attacks " << ennemyPokemon.getName() << "!" << endl;
-		ennemyPokemon.damage(this->attackStat, attackType);
+		ennemyPokemon.damage(this->attackStat, type1);
 	}
 
 	void Pokemon::damage(int ennemyAttack, Pokemon::PokemonType attackType) {
@@ -195,12 +195,8 @@ bool Pokemon::isKO() {
 	return ko;
 }
 
-Pokemon::PokemonType Pokemon::getAttackType() {
-	return this->type1;
-}
 
-
-	void Pokemon::displayInfo() const {
+void Pokemon::displayInfo() const {
 		cout << "id: " << this->id << endl;
 		cout << "name: " << this->name << endl;
 		cout << "Type: " << this->type1 << "/" << this->type2 << endl;
