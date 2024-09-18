@@ -166,7 +166,7 @@ map<pair<Pokemon::PokemonType, Pokemon::PokemonType>, float> Pokemon::typeMap = 
 				cout << "It's not very effective..." << endl;
 			}
 			else {
-				cout << "It's very effective!!!" << endl;
+				cout << "It's super effective!!!" << endl;
 			}
 		}
 		const int damageValue = (int)((2 * (float)averageLevel/5 + 2.0f)*averagePower*(float)ennemyAttack/(float)this->defenseStat / 50 * totalTypeModifier);

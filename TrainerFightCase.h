@@ -9,6 +9,7 @@
 
 class TrainerFightCase : public GameState{
 private:
+    Pokeball trainerPokeball;
     PokemonParty trainerParty;
 public:
     TrainerFightCase(Game& game);
@@ -19,7 +20,7 @@ public:
     void action4() override;
     void action5() override;
     void action6() override;
-    int findNONKOIndex()
+    int findNONKOIndex();
 };
 
 

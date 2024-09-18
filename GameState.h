@@ -12,6 +12,7 @@ using namespace std;
 class Pokeball;
 class PokemonParty;
 class Game;
+class SetOfPokemon;
 class GameState {
 protected:
     Game& game;
@@ -30,6 +31,7 @@ public:
     virtual void action5() = 0;
     virtual void action6() = 0;
     virtual void run() = 0;
+    int selectNonKOPrompt(SetOfPokemon& pokemonList);
 };
 
 

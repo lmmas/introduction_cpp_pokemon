@@ -56,3 +56,16 @@ int GameState::selectFromListPrompt(const int range) {
         return selectFromListPrompt(range);
     }
 }
+
+int GameState::selectNonKOPrompt(SetOfPokemon &pokemonList) {
+    cout << "Select Pokemon for fighting:" << endl;
+    pokemonList.displayList();
+    int selectedIndex = selectFromListPrompt(pokemonList.getList().size());
+    if(!pokemonList.getList().at(selectedIndex)->isKO()) {
+        return selectedIndex;
+    }
+    else {
+        cout << "Pokemon is KO!" << endl;
+        return selectNonKOPrompt(pokemonList);
+    }
+}

@@ -4,18 +4,31 @@
 
 #include "TrainerFightCase.h"
 
-TrainerFightCase::TrainerFightCase(Game &game): GameState(game){
-    playerParty.getPokemon("Garchomp");
-    playerParty.getPokemon("Infernape");
-    playerParty.getPokemon("Gyarados");
-    playerParty.getPokemon("Staraptor");
-    playerParty.getPokemon("Alakazam");
-    playerParty.getPokemon("Magnezone");
+#include "GameOverState.h"
+
+TrainerFightCase::TrainerFightCase(Game &game): GameState(game), trainerParty(trainerPokeball){
+    auto pokedex = Pokedex::getInstance();
+    trainerParty.addPokemon(pokedex->getPokemon("Garchomp"));
+    trainerParty.addPokemon(pokedex->getPokemon("Infernape"));
+    trainerParty.addPokemon(pokedex->getPokemon("Gyarados"));
+    trainerParty.addPokemon(pokedex->getPokemon("Staraptor"));
+    trainerParty.addPokemon(pokedex->getPokemon("Alakazam"));
+    trainerParty.addPokemon(pokedex->getPokemon("Magnezone"));
     cout << "Trainer Gauthier wants to fight!!!" << endl;
-    promptAction();
+    run();
 }
 
 void TrainerFightCase::run() {
+    if(playerParty.getActivePokemon().isKO()) {
+        if(playerParty.allPokemonsKO()){
+            game.transitionToState(make_unique<GameOverState>(game));
+        }
+        else {
+            int selectedIndex = selectNonKOPrompt(playerParty);
+            playerParty.setActivePokemon(selectedIndex);
+            cout << "Go " << playerParty.getActivePokemon().getName() << "!" << endl;
+        }
+    }
     cout << "'1': attack; '2': change Pokemon"<< endl;
     promptAction();
     if(trainerParty.getActivePokemon().isKO()) {
@@ -25,15 +38,19 @@ void TrainerFightCase::run() {
         else {
             int randomInt = playerParty.findNONKOIndex();
             playerParty.setActivePokemon(randomInt);
+            cout << "Gauthier chooses " << trainerParty.getActivePokemon().getName() << "!" << endl;
+            trainerParty.getActivePokemon().attack(playerParty.getActivePokemon(), playerParty.getActivePokemon().getAttackType());
+            run();
         }
     }
     else {
+        trainerParty.getActivePokemon().attack(playerParty.getActivePokemon(), playerParty.getActivePokemon().getAttackType());
         run();
     }
 }
 
 void TrainerFightCase::action1() {
-    playerParty.getActivePokemon().attack(trainerParty.getActivePokemon(), trainerParty.getActivePokemon().getAttackType());
+    playerParty.getActivePokemon().attack(trainerParty.getActivePokemon(), playerParty.getActivePokemon().getAttackType());
 }
 
 void TrainerFightCase::action2() {

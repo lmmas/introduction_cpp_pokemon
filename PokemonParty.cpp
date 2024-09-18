@@ -12,8 +12,6 @@ PokemonParty::PokemonParty(Pokeball& pokeball, string names[6]): pokeball(pokeba
     }
 }
 
-PokemonParty::PokemonParty():pokeball(){};
-
 PokemonParty::PokemonParty(Pokeball& pokeball): pokeball(pokeball) {
 }
 
@@ -68,11 +66,9 @@ void PokemonParty::setActivePokemon(int index) {
 }
 
 int PokemonParty::findNONKOIndex() {
-    int randomIndex = UtilityFunctions::randomInt(list.size());
-    if(!list.at(activePokemon)->isKO()) {
-        return randomIndex;
+    int index = 0;
+    while(list.at(index)->isKO()) {
+        index++;
     }
-    else {
-        return findNONKOIndex();
-    }
+    return index;
 }

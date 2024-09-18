@@ -56,7 +56,7 @@ void WildFightState::run() {
     }
 }
 void WildFightState::action1() {
-    playerParty.getActivePokemon().attack(*wildPokemon, wildPokemon->getAttackType());
+    playerParty.getActivePokemon().attack(*wildPokemon, playerParty.getActivePokemon().getAttackType());
 }
 
 void WildFightState::action2() {
@@ -99,17 +99,3 @@ void WildFightState::action5() {
 
 void WildFightState::action6() {
 }
-
-int WildFightState::selectNonKOPrompt(SetOfPokemon &pokemonList) {
-    cout << "Select Pokemon for fighting:" << endl;
-    pokemonList.displayList();
-    int selectedIndex = selectFromListPrompt(pokemonList.getList().size());
-    if(!pokemonList.getList().at(selectedIndex)->isKO()) {
-        return selectedIndex;
-    }
-    else {
-        cout << "Pokemon is KO!" << endl;
-        return selectNonKOPrompt(pokemonList);
-    }
-}
-

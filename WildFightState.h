@@ -22,7 +22,6 @@ public:
     void action4() override;
     void action5() override;
     void action6() override;
-    int selectNonKOPrompt(SetOfPokemon& pokemonList);
 };
 
 
